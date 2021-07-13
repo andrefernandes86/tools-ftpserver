@@ -1,18 +1,35 @@
+#!/bin/sh
+HOST='ftp.dlptest.com'
+USER='dlpuser'
+PASSWD='rNrKYTX9g7z3RgJRmxWuGHbeu'
+FILE='exploit.py'
+
+ftp -n $HOST <<END_SCRIPT
+quote USER $USER
+quote PASS $PASSWD
+put $FILE
+quit
+END_SCRIPT
+exit 0
+
+
+
+
 #/bin/bash
 # $1 is the file name
 # usage: this_script  <filename>
-IP_address="35.163.228.146"
-username="dlpuser"
-domain=ftp.dlptest.com
-password=rNrKYTX9g7z3RgJRmxWuGHbeu
+#IP_address="35.163.228.146"
+#username="dlpuser"
+#domain=ftp.dlptest.com
+#password=rNrKYTX9g7z3RgJRmxWuGHbeu
 
-echo "
- verbose
- open $IP_address
- USER $username $password
- put $1
- bye
-" | ftp -n > ftp_$$.log
+#echo "
+# verbose
+# open $IP_address
+# USER $username $password
+# put $1
+# bye
+#" | ftp -n > ftp_$$.log
 
 
 #scp index.php dlpuser@ftp.dlptest.com:/
